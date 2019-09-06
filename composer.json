@@ -1,0 +1,30 @@
+{
+    "name": "ryancco/laravel-uuid-models",
+    "description": "Traits for working with Eloquent models with UUIDs",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ryan Colson",
+            "email": "ryanccolson@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "moontoast/math": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ryancco\\HasUuidRouteKey\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ryancco\\HasUuidRouteKey\\Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "orchestra/testbench": "^3.8",
+        "phpunit/phpunit": "^8.3"
+    }
+}
