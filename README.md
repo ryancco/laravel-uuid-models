@@ -1,3 +1,6 @@
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/ryancco/HasUuidRouteKey.svg?style=flat-square)](https://packagist.org/packages/ryancco/HasUuidRouteKey)
+[![Build Status](https://img.shields.io/travis/ryancco/HasUuidRouteKey/master.svg?style=flat-square)](https://travis-ci.org/ryancco/HasUuidRouteKey)
+
 # HasUuidRouteKey
 HasUuidRouteKey is a simple [trait](http://php.net/manual/en/language.oop5.traits.php) to be used on [Laravel](https://laravel.com) Eloquent Models to provide a drop-in solution for UUID route keys.
 

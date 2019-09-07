@@ -1,5 +1,5 @@
 {
-    "name": "ryancco/laravel-uuid-models",
+    "name": "ryancco/hasuuidroutekey",
     "description": "Traits for working with Eloquent models with UUIDs",
     "type": "library",
     "license": "MIT",
