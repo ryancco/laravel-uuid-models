@@ -5,36 +5,36 @@ namespace Ryancco\HasUuidRouteKey\Tests;
 use Illuminate\Support\Str;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
-use Ryancco\HasUuidRouteKey\Tests\Mocks\MockModel;
+use Ryancco\HasUuidRouteKey\Tests\Mocks\Post;
 
 class HasUuidRouteKeyTest extends TestCase
 {
     public function testMakesModelsRoutableByUuid(): void
     {
-        $model = MockModel::create();
+        $model = Post::create();
 
-        $this->get(route('mock', $model))
+        $this->get(route('posts.view', $model))
             ->assertOk()
             ->assertJson($model->toArray());
     }
 
     public function testGeneratesRoutesWithTheUuidAttribute(): void
     {
-        $model = MockModel::create();
+        $model = Post::create();
 
-        $this->assertStringContainsString($model->uuid->toString(), route('mock', $model));
+        $this->assertStringContainsString($model->uuid->toString(), route('posts.view', $model));
     }
 
     public function testGeneratesValidUuidAttributeWhenModelIsCreated(): void
     {
-        $model = MockModel::create();
+        $model = Post::create();
 
         $this->assertTrue(Uuid::isValid($model->uuid));
     }
 
     public function testGeneratesValidUuidAttributeWhenModelIsSavedAfterConstructorInstantiation(): void
     {
-        $model = new MockModel();
+        $model = new Post();
         $model->save();
 
         $this->assertTrue(Uuid::isValid($model->uuid));
@@ -42,14 +42,14 @@ class HasUuidRouteKeyTest extends TestCase
 
     public function testDoesNotGenerateUuidWhenModelIsInstantiatedByConstructor(): void
     {
-        $model = new MockModel();
+        $model = new Post();
 
         $this->assertEmpty($model->uuid);
     }
 
     public function testGetsUuidAttributeAsUuidInterface(): void
     {
-        $model = MockModel::create();
+        $model = Post::create();
 
         $this->assertInstanceOf(UuidInterface::class, $model->uuid);
     }
@@ -58,7 +58,7 @@ class HasUuidRouteKeyTest extends TestCase
     {
         $uuid = Str::orderedUuid();
 
-        $model = new MockModel();
+        $model = new Post();
         $model->uuid = $uuid->toString();
 
         $this->assertEquals($uuid->toString(), $model->uuid->toString());
@@ -68,7 +68,7 @@ class HasUuidRouteKeyTest extends TestCase
     {
         $uuid = Str::orderedUuid();
 
-        $model = new MockModel();
+        $model = new Post();
         $model->uuid = $uuid;
 
         $this->assertEquals($uuid->toString(), $model->uuid->toString());
@@ -77,15 +77,15 @@ class HasUuidRouteKeyTest extends TestCase
     public function testDoesNotOverwriteUuidIfItIsAlreadySet(): void
     {
         $uuid = Str::orderedUuid();
-        $model = new MockModel(compact('uuid'));
+        $model = new Post(compact('uuid'));
 
         $this->assertEquals($uuid->toString(), $model->uuid->toString());
     }
 
     public function testDoesNotOverwriteUuidWhenHydratingTheModel(): void
     {
-        $model = MockModel::create();
-        $hydrated = MockModel::find($model->id);
+        $model = Post::create();
+        $hydrated = Post::find($model->id);
 
         $this->assertEquals($model->uuid->toString(), $hydrated->uuid->toString());
     }
@@ -93,7 +93,7 @@ class HasUuidRouteKeyTest extends TestCase
     public function testDoesNotOverwriteUuidWhenSavingTheModel(): void
     {
         $uuid = Str::orderedUuid();
-        $model = new MockModel(compact('uuid'));
+        $model = new Post(compact('uuid'));
 
         $model->save();
         $this->assertEquals($uuid->toString(), $model->uuid->toString());

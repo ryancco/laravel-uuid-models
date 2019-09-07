@@ -6,7 +6,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Ryancco\HasUuidRouteKey\Tests\Mocks\MockModel;
+use Ryancco\HasUuidRouteKey\Tests\Mocks\Post;
 
 class TestCase extends Orchestra
 {
@@ -30,7 +30,7 @@ class TestCase extends Orchestra
 
     private function setupDatabase(): void
     {
-        Schema::create('mock_models', static function (Blueprint $table) {
+        Schema::create('posts', static function (Blueprint $table) {
             $table->increments('id');
             $table->uuid('uuid');
             $table->timestamps();
@@ -39,8 +39,8 @@ class TestCase extends Orchestra
 
     private function setupRoute(): void
     {
-        Route::middleware('bindings')->get('mock/{model}', static function (MockModel $model) {
-            return $model;
-        })->name('mock');
+        Route::middleware('bindings')->get('posts/{post}', static function (Post $post) {
+            return $post;
+        })->name('posts.view');
     }
 }
