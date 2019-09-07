@@ -1,7 +1,11 @@
 {
-    "name": "ryancco/hasuuidroutekey",
-    "description": "Traits for working with Eloquent models with UUIDs",
-    "type": "library",
+    "name": "ryancco/laravel-uuid-models",
+    "description": "Trait for working with Eloquent models with UUID route keys",
+    "keywords": [
+        "laravel",
+        "uuid",
+        "routing"
+    ],
     "license": "MIT",
     "authors": [
         {
