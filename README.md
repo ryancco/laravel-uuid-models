@@ -1,5 +1,5 @@
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/ryancco/HasUuidRouteKey.svg?style=flat-square)](https://packagist.org/packages/ryancco/HasUuidRouteKey)
-[![Build Status](https://img.shields.io/travis/ryancco/HasUuidRouteKey/master.svg?style=flat-square)](https://travis-ci.org/ryancco/HasUuidRouteKey)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/ryancco/laravel-uuid-models.svg?style=flat-square)](https://packagist.org/packages/ryancco/laravel-uuid-models)
+[![Build Status](https://img.shields.io/travis/ryancco/laravel-uuid-models/master.svg?style=flat-square)](https://travis-ci.org/ryancco/laravel-uuid-models)
 
 # HasUuidRouteKey
 HasUuidRouteKey is a simple [trait](http://php.net/manual/en/language.oop5.traits.php) to be used on [Laravel](https://laravel.com) Eloquent Models to provide a drop-in solution for UUID route keys.
@@ -7,11 +7,11 @@ HasUuidRouteKey is a simple [trait](http://php.net/manual/en/language.oop5.trait
  # Installation
 The only supported automated installation is via [Composer](https://getcomposer.org)
  ```
-composer require ryancco/hasuuidroutekey
+composer require ryancco/laravel-uuid-models
 ```
 
 # Usage
-Once HasUuidRouteKey has been installed, you can add the trait to any Eloquent Models you wish to have UUID route keys.
+Once the package has been installed, you can add the trait to any Eloquent Models you wish to have UUID route keys.
 
 ```php
 <?php
@@ -98,4 +98,4 @@ $post->generateUuidRouteKey();
 ```
  
  # Contributing
- Please report any problems by creating an [issue](https://github.com/ryancco/hasuuidroutekey/issues) and [pull request](https://github.com/ryancco/hasuuidroutekey/pulls) (encouraged, but not required).
+ Please report any problems by creating an [issue](https://github.com/ryancco/laravel-uuid-models/issues) and [pull request](https://github.com/ryancco/laravel-uuid-models/pulls) (encouraged, but not required).
