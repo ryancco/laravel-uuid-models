@@ -2,7 +2,7 @@
 [![Build Status](https://img.shields.io/travis/ryancco/laravel-uuid-models/master.svg?style=flat-square)](https://travis-ci.org/ryancco/laravel-uuid-models)
 
 # Laravel UUID Models
-This package provides a simple [trait](http://php.net/manual/en/language.oop5.traits.php) to be used on [Laravel](https://laravel.com) Eloquent Models to provide a drop-in solution for UUID route keys.
+This package provides a simple [trait](http://php.net/manual/en/language.oop5.traits.php) to be used on [Laravel](https://laravel.com) Eloquent Models to provide a drop-in solution for UUID route keys (rather than auto-incrementing ID's).
 
  # Installation
 The only supported automated installation is via [Composer](https://getcomposer.org)
@@ -96,6 +96,8 @@ If the situation arises where you need the UUID generated before the "creating" 
 $post = new App\Models\Post();
 $post->generateUuidRouteKey();
 ```
+
+_All routes will work assuming they're generated with the `route()` helper._
  
  # Contributing
  Please report any problems by creating an [issue](https://github.com/ryancco/laravel-uuid-models/issues) and [pull request](https://github.com/ryancco/laravel-uuid-models/pulls) (encouraged, but not required).
