@@ -11,7 +11,25 @@ composer require ryancco/laravel-uuid-models
 ```
 
 # Usage
-Once the package has been installed, you can add the trait to any Eloquent Models you wish to have UUID route keys.
+Once the package has been installed, you can add the trait to any Eloquent Models you wish to have UUID route keys. Next, add a column to these model's database tables to store the UUID; here's an example migration:
+
+```php
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class AddUuidColumnToPostsTable extends Migration
+{
+    public function up(): void
+    {
+        Schema::table('posts', static function (Blueprint $table) {
+            $table->uuid('uuid');
+        });
+    }
+}
+```
 
 ```php
 <?php
