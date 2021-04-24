@@ -2,7 +2,6 @@
 
 namespace Ryancco\HasUuidRouteKey;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Ramsey\Uuid\Exception\InvalidUuidStringException;
 use Ramsey\Uuid\Uuid;
@@ -21,7 +20,7 @@ trait HasUuidRouteKey
     {
         $attribute = $this->attributes[$this->getRouteKeyName()] ?? null;
 
-        return !$attribute ? null : Uuid::fromString($attribute);
+        return ! $attribute ? null : Uuid::fromString($attribute);
     }
 
     /**
@@ -31,7 +30,7 @@ trait HasUuidRouteKey
      */
     public function setUuidAttribute($uuid): void
     {
-        if (!$uuid instanceof UuidInterface) {
+        if (! $uuid instanceof UuidInterface) {
             $uuid = Uuid::fromString($uuid);
         }
 
